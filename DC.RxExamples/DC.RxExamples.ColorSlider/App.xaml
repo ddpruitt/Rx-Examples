@@ -1,0 +1,9 @@
+﻿<Application x:Class="DC.RxExamples.ColorSlider.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DC.RxExamples.ColorSlider"
+             StartupUri="View.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

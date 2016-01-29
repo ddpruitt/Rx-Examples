@@ -1,0 +1,55 @@
+﻿<Window x:Class="DC.RxExamples.ColorSlider.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DC.RxExamples.ColorSlider"
+        mc:Ignorable="d"
+        Title="Rx Color Slider" Height="350" Width="525">
+
+    <DockPanel LastChildFill="True">
+
+        <Border DockPanel.Dock="Top" Padding="5">
+            <DockPanel  LastChildFill="True">
+                <Label DockPanel.Dock="Left" MinWidth="45" Content="Red"/>
+                <Label DockPanel.Dock="Left" MinWidth="30" Content="{Binding Red}"/>
+                <Slider Minimum="0" Maximum="255" Value="{Binding Red}">
+                    <Slider.Background>
+                        <SolidColorBrush Color="{Binding RedColor}"/>
+                    </Slider.Background>
+                </Slider>
+            </DockPanel>
+        </Border>
+
+        <Border DockPanel.Dock="Top" Padding="5">
+            <DockPanel LastChildFill="True">
+                <Label DockPanel.Dock="Left" MinWidth="45" Content="Green"/>
+                <Label DockPanel.Dock="Left" MinWidth="30" Content="{Binding Green}"/>
+                <Slider Minimum="0" Maximum="255" Value="{Binding Green}">
+                    <Slider.Background>
+                        <SolidColorBrush Color="{Binding GreenColor}"/>
+                    </Slider.Background>
+                </Slider>
+            </DockPanel>
+        </Border>
+
+        <Border DockPanel.Dock="Top" Padding="5">
+            <DockPanel LastChildFill="True">
+                <Label DockPanel.Dock="Left" MinWidth="45" Content="Blue"/>
+                <Label DockPanel.Dock="Left" MinWidth="30" Content="{Binding Blue}"/>
+                <Slider Minimum="0" Maximum="255" Value="{Binding Blue}">
+                    <Slider.Background>
+                        <SolidColorBrush Color="{Binding BlueColor}"/>
+                    </Slider.Background>
+                </Slider>
+            </DockPanel>
+        </Border>
+
+        <Canvas>
+            <Canvas.Background>
+                <SolidColorBrush Color="{Binding FinalColor}"/>
+            </Canvas.Background>
+        </Canvas>
+
+    </DockPanel>
+</Window>
