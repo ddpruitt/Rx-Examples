@@ -10,7 +10,6 @@ namespace DC.RxExamples.ColorSlider
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
         }
     }
 }
