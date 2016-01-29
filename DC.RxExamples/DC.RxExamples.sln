@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.ColorSlider",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.SimpleCons", "DC.RxExamples.SimpleCons\DC.RxExamples.SimpleCons.csproj", "{44298578-9D87-41AC-A1A1-7DDA711D9F22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.Streamers", "DC.RxExamples.Streamers\DC.RxExamples.Streamers.csproj", "{3ECDBD0A-289B-442D-80A1-7C4BEAC6B9E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{44298578-9D87-41AC-A1A1-7DDA711D9F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44298578-9D87-41AC-A1A1-7DDA711D9F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44298578-9D87-41AC-A1A1-7DDA711D9F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECDBD0A-289B-442D-80A1-7C4BEAC6B9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECDBD0A-289B-442D-80A1-7C4BEAC6B9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECDBD0A-289B-442D-80A1-7C4BEAC6B9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ECDBD0A-289B-442D-80A1-7C4BEAC6B9E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
