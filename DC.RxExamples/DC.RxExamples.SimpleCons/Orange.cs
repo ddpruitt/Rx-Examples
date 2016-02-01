@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Reactive.Linq;
+using System.Text;
 
 namespace DC.RxExamples.SimpleCons
 {
@@ -28,6 +30,16 @@ namespace DC.RxExamples.SimpleCons
             }
 
             Console.WriteLine(new string('-', 25));
+        }
+
+        public static void WriteRangeToFile()
+        {
+            Observable.Using(
+                () => new FileStream(@".\WriteRangeToFile.txt", FileMode.Create),
+                fs => Observable.Range(0, 10000).Select(v => Encoding.ASCII.GetBytes(v.ToString()))
+                )
+                .Subscribe();
+
         }
     }
 }

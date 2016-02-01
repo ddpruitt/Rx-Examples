@@ -7,7 +7,7 @@
             //Orange.FirstObservableRange();
             //ExamplesFrom101.CancelingAnAsynchronousOperation();
             
-            HotAndCold.PubConnectEscape();
+            HotAndCold.PubConnectEscape2();
         }
     }
 }

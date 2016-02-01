@@ -5,7 +5,7 @@ using System.Reactive.Linq;
 
 namespace DC.RxExamples.Streamers
 {
-    public class OStream
+    public static class OStream
     {
         public static void ObserveFileStream()
         {
