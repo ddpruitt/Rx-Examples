@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 
 namespace DC.RxExamples.Streamers
 {
@@ -11,6 +12,8 @@ namespace DC.RxExamples.Streamers
 
         public void HotReadFileToConsole()
         {
+            var period = TimeSpan.FromSeconds(1);
+
             var publishedStream = ReadLines(RostockMax01)
                 .ToObservable<string>()
                 .Publish();
@@ -52,6 +55,16 @@ namespace DC.RxExamples.Streamers
             }
         }
 
-       
+        //public Task<string> ReadLinesTask(FileInfo sourceFileInfo)
+        //{
+        //    return Task.Run(
+        //        async () =>
+        //        {
+        //            foreach (var line in ReadLines(sourceFileInfo))
+        //            {
+        //                yield return line;
+        //            }
+        //        });
+        //}
     }
 }
