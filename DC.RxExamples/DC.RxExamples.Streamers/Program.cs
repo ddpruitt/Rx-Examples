@@ -4,7 +4,9 @@
     {
         public static void Main(string[] args)
         {
-            OStream.ObserveFileStream();
+            //OStream.ObserveFileStream();
+
+            new RostockMax().HotReadFileToConsole();
         }
 
         
