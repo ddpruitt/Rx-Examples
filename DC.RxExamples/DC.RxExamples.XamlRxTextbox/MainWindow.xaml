@@ -1,0 +1,16 @@
+﻿<Window x:Class="DC.RxExamples.XamlRxTextbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DC.RxExamples.XamlRxTextbox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel LastChildFill="True">
+        <Button DockPanel.Dock="Top" Name="RunRx" Click="RunRx_Click">Run Rx</Button>
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+            <TextBox local:ScrollToEndBehavior.OnTextChanged="True" Width="250" DockPanel.Dock="Left" Name="RxTarget" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+            <TextBox local:ScrollToEndBehavior.OnTextChanged="True" DockPanel.Dock="Left" Name="RxTarget2" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+        </DockPanel>
+    </DockPanel>
+</Window>
