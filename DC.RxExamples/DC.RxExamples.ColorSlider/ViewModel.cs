@@ -15,7 +15,7 @@ namespace DC.RxExamples.ColorSlider
             set { this.RaiseAndSetIfChanged(ref red, value); }
         }
 
-        readonly ObservableAsPropertyHelper<Color> redColor;
+        private readonly ObservableAsPropertyHelper<Color> redColor;
         public Color RedColor => redColor.Value;
 
         #endregion
@@ -30,7 +30,7 @@ namespace DC.RxExamples.ColorSlider
             set { this.RaiseAndSetIfChanged(ref green, value); }
         }
 
-        readonly ObservableAsPropertyHelper<Color> greenColor;
+        private readonly ObservableAsPropertyHelper<Color> greenColor;
         public Color GreenColor => greenColor.Value;
         #endregion
 
@@ -44,7 +44,7 @@ namespace DC.RxExamples.ColorSlider
             set { this.RaiseAndSetIfChanged(ref blue, value); }
         }
 
-        readonly ObservableAsPropertyHelper<Color> blueColor;
+        private readonly ObservableAsPropertyHelper<Color> blueColor;
         public Color BlueColor => blueColor.Value;
         #endregion
 
@@ -71,13 +71,13 @@ namespace DC.RxExamples.ColorSlider
                 .WhenAny(x => x.Red, x => x.Green, x => x.Blue,
                 (r, g, b) => Color.FromRgb(r.Value, g.Value, b.Value)).ToProperty(this, x => x.FinalColor);
 
-            redColor = this.WhenAny(x => x.Red, (r) => Color.FromRgb(r.Value, 0, 0))
+            redColor = this.WhenAny(x => x.Red, r => Color.FromRgb(r.Value, 0, 0))
                 .ToProperty(this, x => x.RedColor);
 
-            greenColor = this.WhenAny(x => x.Green, (g) => Color.FromRgb(0, g.Value, 0))
+            greenColor = this.WhenAny(x => x.Green, g => Color.FromRgb(0, g.Value, 0))
                 .ToProperty(this, x => x.GreenColor);
 
-            blueColor = this.WhenAny(x => x.Blue, (b) => Color.FromRgb(0, 0, b.Value))
+            blueColor = this.WhenAny(x => x.Blue, b => Color.FromRgb(0, 0, b.Value))
                 .ToProperty(this, x => x.BlueColor);
 
             Red = 100;
