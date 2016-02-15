@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.Streamers", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.XamlRxTextbox", "DC.RxExamples.XamlRxTextbox\DC.RxExamples.XamlRxTextbox.csproj", "{EB489400-85C8-4E87-AA27-CEB455FE0A8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.RxExamples.OneHundredOne", "DC.RxExamples.OneHundredOne\DC.RxExamples.OneHundredOne.csproj", "{829ECE73-D15F-4924-9E4F-03CDA92D0AEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EB489400-85C8-4E87-AA27-CEB455FE0A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB489400-85C8-4E87-AA27-CEB455FE0A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB489400-85C8-4E87-AA27-CEB455FE0A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829ECE73-D15F-4924-9E4F-03CDA92D0AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829ECE73-D15F-4924-9E4F-03CDA92D0AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829ECE73-D15F-4924-9E4F-03CDA92D0AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829ECE73-D15F-4924-9E4F-03CDA92D0AEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
