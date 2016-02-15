@@ -24,5 +24,20 @@ namespace DC.RxExamples.OneHundredOne
 
             obs.Wait();  // wait for completion of background operation.
         }
+
+        // Run a method asynchronoulsy on demand
+        public static int DoLongRunningOperation(string param)
+        {
+            Console.WriteLine("Long Running Operation on Thread: {0}, Param {1}", 
+                Thread.CurrentThread.ManagedThreadId, param);
+            Thread.Sleep(1000);
+            return string.IsNullOrWhiteSpace(param) ? 0 : param.Length;
+        }
+
+        public static IObservable<int> LongRunningOperationAsync(string param)
+        {
+            return Observable.Create<int>(
+                o => Observable.ToAsync<string, int>(DoLongRunningOperation)(param).Subscribe(o));
+        }
     }
 }
