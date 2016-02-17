@@ -11,9 +11,11 @@ namespace DC.RxExamples.OneHundredOne
             Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
             //AsynchronousBackgroundOperations.StartBacgroundWork();
 
-            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String").Wait();
-            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 2").Wait();
-            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 3").Wait();
+            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String").Wait();
+            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 2").Wait();
+            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 3").Wait();
+
+            AsynchronousBackgroundOperations.ParallelExecutionTest();
         }
     }
 }
