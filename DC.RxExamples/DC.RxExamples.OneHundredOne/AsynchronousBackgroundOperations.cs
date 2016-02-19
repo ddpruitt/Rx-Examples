@@ -30,6 +30,9 @@ namespace DC.RxExamples.OneHundredOne
             Console.WriteLine("\r\n\tIn Main Thread...\r\n");
 
             obs.Wait();  // wait for completion of background operation.
+
+            Console.WriteLine("\n\nDone with background threads.");
+
         }
 
         /// <summary>
@@ -47,6 +50,7 @@ namespace DC.RxExamples.OneHundredOne
 
         public static IObservable<int> LongRunningOperationAsync(string param)
         {
+            Console.WriteLine("\nLong running operation async");
             return Observable.Create<int>(
                 o => Observable.ToAsync<string, int>(DoLongRunningOperation)(param).Subscribe(o));
         }
@@ -56,23 +60,27 @@ namespace DC.RxExamples.OneHundredOne
         /// </summary>
         public static async void ParallelExecutionTest()
         {
+            Console.WriteLine("\n\nParallel Executeion of A, B and C.");
             var o = Observable.CombineLatest(
                 Observable.Start(() =>
                 {
+                    Console.WriteLine("Start Executing 1st on Thread (A): {0}", Thread.CurrentThread.ManagedThreadId);
                     Thread.Sleep(3000);
-                    Console.WriteLine("Executing 1st on Thread: {0}", Thread.CurrentThread.ManagedThreadId);
+                    Console.WriteLine("Done Executing 1st on Thread (A): {0}", Thread.CurrentThread.ManagedThreadId);
                     return "Result A";
                 }),
                 Observable.Start(() =>
                 {
+                    Console.WriteLine("Start Executing 2nd on Thread (B): {0}", Thread.CurrentThread.ManagedThreadId);
                     Thread.Sleep(2000);
-                    Console.WriteLine("Executing 2nd on Thread: {0}", Thread.CurrentThread.ManagedThreadId);
+                    Console.WriteLine("Done Executing 2nd on Thread (B): {0}", Thread.CurrentThread.ManagedThreadId);
                     return "Result B";
                 }),
                 Observable.Start(() =>
                 {
+                    Console.WriteLine("Start Executing 3rd on Thread (C): {0}", Thread.CurrentThread.ManagedThreadId);
                     Thread.Sleep(1000);
-                    Console.WriteLine("Executing 3rd on Thread: {0}", Thread.CurrentThread.ManagedThreadId);
+                    Console.WriteLine("Done Executing 3rd on Thread (C): {0}", Thread.CurrentThread.ManagedThreadId);
                     return "Result C";
                 })
                 )
@@ -83,6 +91,9 @@ namespace DC.RxExamples.OneHundredOne
 
             foreach (var r in await o.FirstAsync())
                 Console.WriteLine("Waited for: {0}", r);
+
+            Console.WriteLine("\n\nComplete Parallel Executeion of A, B and C.");
+
         }
     }
 }

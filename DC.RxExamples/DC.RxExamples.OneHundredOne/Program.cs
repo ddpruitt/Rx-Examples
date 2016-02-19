@@ -9,12 +9,16 @@ namespace DC.RxExamples.OneHundredOne
         static void Main()
         {
             Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
-            //AsynchronousBackgroundOperations.StartBacgroundWork();
 
-            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String").Wait();
-            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 2").Wait();
-            //AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 3").Wait();
+            AsynchronousBackgroundOperations.StartBacgroundWork();
 
+            Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
+
+            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String").Wait();
+            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 2").Wait();
+            AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 3").Wait();
+
+            Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
             AsynchronousBackgroundOperations.ParallelExecutionTest();
         }
     }
