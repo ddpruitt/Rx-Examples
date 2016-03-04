@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            //Orange.FirstObservableRange();
-            //ExamplesFrom101.CancelingAnAsynchronousOperation();
-            
+            Orange.FirstObservableRange();
+            ExamplesFrom101.CancelingAnAsynchronousOperation();
+
             HotAndCold.PubConnectEscape2();
         }
     }

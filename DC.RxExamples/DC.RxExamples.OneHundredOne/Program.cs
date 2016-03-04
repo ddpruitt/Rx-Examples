@@ -8,18 +8,21 @@ namespace DC.RxExamples.OneHundredOne
     {
         static void Main()
         {
-            Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Main Thread {0} - Start Background Work", Thread.CurrentThread.ManagedThreadId);
 
-            AsynchronousBackgroundOperations.StartBacgroundWork();
+            AsynchronousBackgroundOperations.StartBackgroundWork();
 
-            Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Main Thread {0} - Start Long Running Operations", Thread.CurrentThread.ManagedThreadId);
 
             AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String").Wait();
             AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 2").Wait();
             AsynchronousBackgroundOperations.LongRunningOperationAsync("Test String 3").Wait();
 
-            Console.WriteLine("Main Thread {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Main Thread {0} - Start Parallel Executions", Thread.CurrentThread.ManagedThreadId);
             AsynchronousBackgroundOperations.ParallelExecutionTest();
+
+            Console.WriteLine("Main Thread {0} - Start Disposable Scheduler", Thread.CurrentThread.ManagedThreadId);
+            AsynchronousBackgroundOperations.DisposableScheduler();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reactive.Concurrency;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,7 +16,7 @@ namespace DC.RxExamples.OneHundredOne
         /// <summary>
         /// Start - Run Code Asynchronously
         /// </summary>
-        public static void StartBacgroundWork()
+        public static void StartBackgroundWork()
         {
             Console.WriteLine("Shows use of Start to start on a bacground thread:");
             var obs = Observable.Start(() =>
@@ -94,6 +96,38 @@ namespace DC.RxExamples.OneHundredOne
 
             Console.WriteLine("\n\nComplete Parallel Executeion of A, B and C.");
 
+        }
+
+        /// <summary>
+        /// Create With Disposable & Scheduler - Canceling an asynchronous operation
+        /// </summary>
+        public static void DisposableScheduler()
+        {
+            IObservable<int> ob =
+                Observable.Create<int>(o =>
+                {
+                    var cancel = new CancellationDisposable();
+                    NewThreadScheduler.Default.Schedule(() =>
+                    {
+                        int i = 0;
+                        while (!cancel.Token.IsCancellationRequested)
+                        {
+                            Thread.Sleep(200);
+                            o.OnNext(i++);
+                        }
+
+                        Console.WriteLine("Aborting because cancel evente was signled.");
+                        o.OnCompleted();
+                    });
+                    return cancel;
+                });
+
+            IDisposable subscription = ob.Subscribe(i => Console.WriteLine("\t{0:000}",i));
+            Console.WriteLine("Press any key to cancel");
+            Console.ReadKey();
+            subscription.Dispose();
+            Console.WriteLine("Background should be cleaned up by now, Press any key to quit");
+            Console.ReadKey(); // give background thread chance to write cancel message
         }
     }
 }
