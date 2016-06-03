@@ -63,6 +63,7 @@
     <Compile Include="OStream.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegexOnStream.cs" />
     <Compile Include="RostockMax.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,8 +5,9 @@
         public static void Main(string[] args)
         {
             //OStream.ObserveFileStream();
+            RegexOnStream.RegexOverFileStream();
 
-            new RostockMax().HotReadFileToConsole();
+            //new RostockMax().HotReadFileToConsole();
         }
 
         
